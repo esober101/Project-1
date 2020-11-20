@@ -1,5 +1,4 @@
 
-
 var userChoice = 'pizza';
 var testURL = "https://pixabay.com/api/?key=19187965-bb22bcd3a1a38308ab5cb193f&q="+ userChoice +"&image_type=photo&safesearch=true"
 var recipeURL = "https://www.themealdb.com/api/json/v1/1/search.php?s="+userChoice;
@@ -26,13 +25,25 @@ function displayText(header, paragraph) {
   $("#recipeText").append(paragraph);
 
 }
+//food items recipe in a list 
+function displayList(list) {
+  
+  for(let i = 0; i < list.length; i++) {
+
+    let recipeItem = $("<li>" + list[i] + "</li>");
+    $("#foodItemRecipe").append(recipeItem);
+
+  }
+
+};
+
 //grabbing response from pixabay api
-$.ajax({
+$.ajax ({
   url: testURL,
   method: "GET"
 }).then(function(response) {
 
-//console.log(response);
+
 console.log(response);
 
 url = response.hits[0].largeImageURL;
@@ -45,13 +56,25 @@ $.ajax({
   url: recipeURL,
   method: "GET"
 }).then(function(response) {
+
+  let ingredient = response.meals[0];  
+
+let list = [];
+ 
+for(let i = 1; i < 20; i++) {
   
-//console.log(response);
-console.log(response);
-header = response.meals[0].strMeal;
+  if (ingredient["strIngredient" + i] === "") {
+      break;
+  }
+  list.append(ingredient["strIngredient" + i]);
+  }
+
+  console.log(response);
+  header = response.meals[0].strMeal;
 paragraph = response.meals[0].strInstructions;
 
 displayText(header, paragraph);
+displayList(list);
 
 });
 
