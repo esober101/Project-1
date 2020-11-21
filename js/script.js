@@ -4,15 +4,15 @@ if (
 ) {
   localStorage.setItem("userFoodChoice", "pizza");
 }
+var breakfastList = ["pancakes" ,"breakfast potatoes", "Full English Breakfast"];
+var lunchList = [];
+var dinnerList = [];
 var userChoice = localStorage.getItem("userFoodChoice");
 var userChoicePhoto = localStorage.getItem("userFoodChoice");
 userChoicePhoto.toLowerCase();
 userChoicePhoto.replace(" ", "|");
 console.log(userChoicePhoto);
-var testURL =
-  "https://pixabay.com/api/?key=19187965-bb22bcd3a1a38308ab5cb193f&q=" +
-  userChoicePhoto +
-  "&image_type=photo&safesearch=true";
+
 var recipeURL =
   "https://www.themealdb.com/api/json/v1/1/search.php?s=" + userChoice;
 $(".random-meal").click(function () {
@@ -46,23 +46,15 @@ function displayList(list) {
   }
 }
 
-//grabbing response from pixabay api
-$.ajax({
-  url: testURL,
-  method: "GET",
-}).then(function (response) {
-  console.log(response);
 
-  url = response.hits[0].largeImageURL;
-  alt = response.hits[0].tags;
-  displayImage(url, alt);
-});
+
 // grabbing response from mealdb api
 $.ajax({
   url: recipeURL,
   method: "GET",
 }).then(function (response) {
   console.log(response);
+  var imageURL = response.meals[0].strMealThumb;
   let ingredientPath = response.meals[0];
 
   let list = [];
@@ -80,7 +72,7 @@ $.ajax({
   console.log(response);
   header = response.meals[0].strMeal;
   paragraph = response.meals[0].strInstructions;
-
+  displayImage(imageURL, header);
   displayText(header, paragraph);
   displayList(list);
 });
