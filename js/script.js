@@ -1,6 +1,6 @@
 
 var userChoice = 'pizza';
-var testURL = "https://pixabay.com/api/?key=19187965-bb22bcd3a1a38308ab5cb193f&q=" + userChoice + "&image_type=photo&safesearch=true"
+var testURL = "https://pixabay.com/api/?key=19187965-bb22bcd3a1a38308ab5cb193f&q=" + userChoice + "*&image_type=photo&safesearch=true"
 var recipeURL = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + userChoice;
 
 
