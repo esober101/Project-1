@@ -4,19 +4,23 @@ if (
 ) {
   localStorage.setItem("userFoodChoice", "pizza");
 }
-var breakfastList = ["pancakes" ,"breakfast potatoes", "Full English Breakfast"];
-var lunchList = [];
-var dinnerList = [];
+var breakfastList = ["pancakes" ,"breakfast potatoes", "Full English Breakfast","French Omelette" ];
+var lunchList = ["big mac", "vegetarian chili", "thai green curry", "Lasagna Sandwiches", "Chicken Ham and Leek Pie"];
+var dinnerList = ["beef lo mein", "chicken handi", "Salmon Prawn Risotto"];
 var userChoice = localStorage.getItem("userFoodChoice");
 var userChoicePhoto = localStorage.getItem("userFoodChoice");
 userChoicePhoto.toLowerCase();
 userChoicePhoto.replace(" ", "|");
 console.log(userChoicePhoto);
-
 var recipeURL =
   "https://www.themealdb.com/api/json/v1/1/search.php?s=" + userChoice;
+
+  //search function for random meals
 $(".random-meal").click(function () {
   console.log($(this).attr("value"));
+  if ($(this).attr("value") === "Breakfast") {
+    getRandomMeal(BreakfastList);
+  } 
 });
 //search functions for user choices
 $("#search").click(function () {
