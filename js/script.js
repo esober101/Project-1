@@ -11,6 +11,9 @@ var testURL =
   "&image_type=photo&safesearch=true";
 var recipeURL =
   "https://www.themealdb.com/api/json/v1/1/search.php?s=" + userChoice;
+$(".random-meal").click(function () {
+  console.log($(this).attr("value"));
+});
 //search functions for user choices
 $("#search").click(function () {
   localStorage.setItem("userFoodChoice", $("#inputSearch").val());
