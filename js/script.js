@@ -1,8 +1,14 @@
-
-var userChoice = 'pizza';
+if (localStorage.getItem("userChoice") == null || localStorage.getItem("userChoice") == undefined) {
+  localStorage.setItem("userChoice", "pizza");
+}
+var userChoice = localStorage.getItem("userChoice");
 var testURL = "https://pixabay.com/api/?key=19187965-bb22bcd3a1a38308ab5cb193f&q=" + userChoice + "&image_type=photo&safesearch=true"
 var recipeURL = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + userChoice;
-
+//search functions for user choices 
+$("#search").click(function () {
+  localStorage.setItem("userChoice", $("#inputSearch").val());
+  window.open("index.html", "_self");
+})
 
 
 
