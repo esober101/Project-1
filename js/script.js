@@ -5,9 +5,13 @@ if (
   localStorage.setItem("userFoodChoice", "pizza");
 }
 var userChoice = localStorage.getItem("userFoodChoice");
+var userChoicePhoto = localStorage.getItem("userFoodChoice");
+userChoicePhoto.toLowerCase();
+userChoicePhoto.replace(" ", "|");
+console.log(userChoicePhoto);
 var testURL =
   "https://pixabay.com/api/?key=19187965-bb22bcd3a1a38308ab5cb193f&q=" +
-  userChoice +
+  userChoicePhoto +
   "&image_type=photo&safesearch=true";
 var recipeURL =
   "https://www.themealdb.com/api/json/v1/1/search.php?s=" + userChoice;
