@@ -4,13 +4,14 @@ if (
 ) {
   localStorage.setItem("userFoodChoice", "pizza");
 }
+var header, paragraph;
 var breakfastList = ["pancakes" ,"breakfast potatoes", "Full English Breakfast","French Omelette" ];
-var lunchList = ["big mac", "vegetarian chili", "thai green curry", "Lasagna Sandwiches", "Chicken Ham and Leek Pie"];
+var lunchList = ["big mac", "vegetarian chilli", "thai green curry", "Lasagna Sandwiches", "Chicken Ham and Leek Pie"];
 var dinnerList = ["beef lo mein", "chicken handi", "Salmon Prawn Risotto"];
 var userChoice = localStorage.getItem("userFoodChoice");
 var userChoicePhoto = localStorage.getItem("userFoodChoice");
-userChoicePhoto.toLowerCase();
-userChoicePhoto.replace(" ", "|");
+// userChoicePhoto.toLowerCase();
+// userChoicePhoto.replace(" ", "|");
 console.log(userChoicePhoto);
 var recipeURL =
   "https://www.themealdb.com/api/json/v1/1/search.php?s=" + userChoice;
@@ -19,9 +20,20 @@ var recipeURL =
 $(".random-meal").click(function () {
   console.log($(this).attr("value"));
   if ($(this).attr("value") === "Breakfast") {
-    getRandomMeal(BreakfastList);
+    userChoice = getRandomMeal(breakfastList);
+    localStorage.setItem("userFoodChoice", userChoice);
+    window.open("index.html", "_self");
   } 
-});
+  else if($(this).attr("value") === "Lunch") {
+    userChoice = getRandomMeal(lunchList);
+    localStorage.setItem("userFoodChoice", userChoice);
+    window.open("index.html", "_self");
+  }else{
+    userChoice = getRandomMeal(dinnerList);
+    localStorage.setItem("userFoodChoice", userChoice);
+    window.open("index.html", "_self");
+  }});
+
 //search functions for user choices
 $("#search").click(function () {
   localStorage.setItem("userFoodChoice", $("#inputSearch").val());
@@ -50,7 +62,11 @@ function displayList(list) {
   }
 }
 
+function getRandomMeal(mealList){
+    var random = Math.floor(Math.random() * mealList.length);
+    return mealList[random];
 
+}
 
 // grabbing response from mealdb api
 $.ajax({
