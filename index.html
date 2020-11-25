@@ -13,19 +13,16 @@
 </head>
 
 <body>
-  <div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
-    <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
-    <div class="title-bar-title">Menu</div>
-  </div>
+ 
   <div class="top-bar" id="responsive-menu">
     <div class="top-bar-left">
       <ul class="dropdown menu" data-dropdown-menu>
-        <li class="menu-text">What for dinner?</li>
-        <li class="has-submenu">
+        <li class=" menu-text">What for dinner?</li>
+        <li class="random-meal" value="Breakfast">
           <a href="#0">Breakfast</a>
         </li>
-        <li><a href="#0">Dinner</a></li>
-        <li><a href="#0">Lunch</a></li>
+        <li class="random-meal" value="Dinner"><a href="#0">Dinner</a></li>
+        <li class="random-meal" value="Lunch"><a href="#0">Lunch</a></li>
       </ul>
     </div>
     <div class="top-bar-right">
@@ -39,17 +36,15 @@
     <div class="cell medium-6 large-6">
       <img src="" alt="" id="foodPic" />
     </div>
-    <div class="cell medium-4 large-4">
+    <div class="cell medium-6 large-6">
       <h4 id="title"></h4>
-      <p id="recipeText">
-
-      </p>
+      <p id="recipeText"></p>
     </div>
-    <div class="cell medium-2 large-2">
-      <ul id="foodItemRecipe">
-
-      </ul>
-
+    <div class="cell medium-6 large-6">
+      <ul id="foodItemCalories"></ul>
+    </div>
+    <div class="cell medium-6 large-6">
+      <ul id="foodItemRecipe"></ul>
     </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
