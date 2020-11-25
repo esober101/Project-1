@@ -1,89 +1,119 @@
-if (localStorage.getItem("userChoice") == null || localStorage.getItem("userChoice") == undefined) {
-  localStorage.setItem("userChoice", "pizza");
+if (
+  localStorage.getItem("userFoodChoice") == null ||
+  localStorage.getItem("userFoodChoice") == undefined
+) {
+  localStorage.setItem("userFoodChoice", "pizza");
 }
-var userChoice = localStorage.getItem("userChoice");
-var testURL = "https://pixabay.com/api/?key=19187965-bb22bcd3a1a38308ab5cb193f&q=" + userChoice + "&image_type=photo&safesearch=true"
-var recipeURL = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + userChoice;
-//search functions for user choices 
+var header, paragraph;
+var breakfastList = ["pancakes" ,"breakfast potatoes", "Full English Breakfast","French Omelette" ];
+var lunchList = ["big mac", "vegetarian chilli", "thai green curry", "Lasagna Sandwiches", "Chicken Ham and Leek Pie"];
+var dinnerList = ["beef lo mein", "chicken handi", "Salmon Prawn Risotto"];
+var userChoice = localStorage.getItem("userFoodChoice");
+var userChoicePhoto = localStorage.getItem("userFoodChoice");
+// userChoicePhoto.toLowerCase();
+// userChoicePhoto.replace(" ", "|");
+console.log(userChoicePhoto);
+var recipeURL =
+  "https://www.themealdb.com/api/json/v1/1/search.php?s=" + userChoice;
+
+  //search function for random meals
+$(".random-meal").click(function () {
+  console.log($(this).attr("value"));
+  if ($(this).attr("value") === "Breakfast") {
+    userChoice = getRandomMeal(breakfastList);
+    localStorage.setItem("userFoodChoice", userChoice);
+    window.open("index.html", "_self");
+  } 
+  else if($(this).attr("value") === "Lunch") {
+    userChoice = getRandomMeal(lunchList);
+    localStorage.setItem("userFoodChoice", userChoice);
+    window.open("index.html", "_self");
+  }else{
+    userChoice = getRandomMeal(dinnerList);
+    localStorage.setItem("userFoodChoice", userChoice);
+    window.open("index.html", "_self");
+  }});
+
+//search functions for user choices
 $("#search").click(function () {
-  localStorage.setItem("userChoice", $("#inputSearch").val());
+  localStorage.setItem("userFoodChoice", $("#inputSearch").val());
   window.open("index.html", "_self");
-})
-
-
+});
 
 $("#search").click(function () {
-
   userChoice = $("#inputSearch").val();
   console.log(userChoice);
-})
+});
 //image for food item searched by user
 function displayImage(URL, alt) {
-
   $("#foodPic").attr("src", URL);
   $("#foodPic").attr("alt", alt);
-
 }
-//info on the food item searched 
+//info on the food item searched
 function displayText(header, paragraph) {
-
   $("#title").append(header);
   $("#recipeText").append(paragraph);
-
 }
-//food items recipe in a list 
+//food items recipe in a list
 function displayList(list) {
-
   for (let i = 0; i < list.length; i++) {
-
     let recipeItem = $("<li>" + list[i] + "</li>");
     $("#foodItemRecipe").append(recipeItem);
-
   }
+}
 
-};
+{ 
+  var listItem = $("<li>" + "</li>")
+  $("#foodItemCalories").append(listItem)
+}
 
-//grabbing response from pixabay api
-$.ajax({
-  url: testURL,
-  method: "GET"
-}).then(function (response) {
+function getRandomMeal(mealList){
+    var random = Math.floor(Math.random() * mealList.length);
+    return mealList[random];
 
+}
 
-  console.log(response);
-
-  url = response.hits[0].largeImageURL;
-  alt = response.hits[0].tags;
-  displayImage(url, alt);
-
-})
 // grabbing response from mealdb api
 $.ajax({
   url: recipeURL,
-  method: "GET"
+  method: "GET",
 }).then(function (response) {
-  console.log(response)
-  let ingredient = response.meals[0];
+  console.log(response);
+  var imageURL = response.meals[0].strMealThumb;
+  let ingredientPath = response.meals[0];
 
   let list = [];
 
   for (let i = 1; i < 20; i++) {
-    var testString = "strIngredient" + i;
-    console.log(testString);
-    if (ingredient[testString] === "") {
+    var ingredient = "strIngredient" + i;
+    var measurement = "strMeasure" + i;
 
+    if (ingredientPath[ingredient] === "") {
       break;
     }
-    list.push(ingredient[testString]);
-
+    list.push(ingredientPath[ingredient] + ": " + ingredientPath[measurement]);
   }
   console.log(list);
   console.log(response);
   header = response.meals[0].strMeal;
   paragraph = response.meals[0].strInstructions;
-
+  displayImage(imageURL, header);
   displayText(header, paragraph);
   displayList(list);
+
+  var query = '3lb carrots and a chicken sandwich'
+  $.ajax({
+    method: 'GET',
+    url: 'https://api.calorieninjas.com/v1/nutrition?query=' + query,
+    headers: { 'X-Api-Key': 'YOUR_API_KEY'},
+    contentType: 'application/json',
+    success: function(result) {
+        console.log(result);
+    },
+    error: function ajaxError(jqXHR) {
+        console.error('Error: ', jqXHR.responseText);
+    }
+});
 
 });
 
