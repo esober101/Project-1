@@ -62,11 +62,14 @@ function displayList(list) {
   }
 }
 
+<<<<<<< HEAD
 { 
   var listItem = $("<li>" + "</li>")
   $("#foodItemCalories").append(listItem)
 }
 
+=======
+>>>>>>> 953730e2ea693d113f3f59572aa75ee468bb5ac3
 function getRandomMeal(mealList){
     var random = Math.floor(Math.random() * mealList.length);
     return mealList[random];
@@ -100,6 +103,7 @@ $.ajax({
   displayImage(imageURL, header);
   displayText(header, paragraph);
   displayList(list);
+<<<<<<< HEAD
 
   var query = '3lb carrots and a chicken sandwich'
   $.ajax({
@@ -116,5 +120,6 @@ $.ajax({
 });
 
 
+=======
+>>>>>>> 953730e2ea693d113f3f59572aa75ee468bb5ac3
 });
-
