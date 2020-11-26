@@ -91,30 +91,40 @@ $.ajax({
   url: recipeURL,
   method: "GET",
 }).then(function (response) {
-  console.log(response);
-  var imageURL = response.meals[0].strMealThumb;
-  let ingredientPath = response.meals[0];
+  //condition bellow checks if the return object is equal with null or not
+  if (response.meals != null) {
+    console.log(response);
+    var imageURL = response.meals[0].strMealThumb;
+    let ingredientPath = response.meals[0];
 
-  let list = [];
+    let list = [];
 
-  for (let i = 1; i < 20; i++) {
-    var ingredient = "strIngredient" + i;
-    var measurement = "strMeasure" + i;
+    for (let i = 1; i < 20; i++) {
+      var ingredient = "strIngredient" + i;
+      var measurement = "strMeasure" + i;
 
-    if (ingredientPath[ingredient] === "") {
-      break;
+      if (ingredientPath[ingredient] === "") {
+        break;
+      }
+      list.push(
+        ingredientPath[ingredient] + ": " + ingredientPath[measurement]
+      );
     }
-    list.push(ingredientPath[ingredient] + ": " + ingredientPath[measurement]);
+    console.log(list);
+    console.log(response);
+    header = response.meals[0].strMeal;
+    paragraph = response.meals[0].strInstructions;
+    displayImage(imageURL, header);
+    displayText(header, paragraph);
+    displayList(list);
+  } else {
+    //we need to add here what will be displayed on the screen
+    // when we will not get an positive response from Api
+    alert(
+      "This alert happens when user introduces a word that MealDB API cannot find."
+    );
   }
-  console.log(list);
-  console.log(response);
-  header = response.meals[0].strMeal;
-  paragraph = response.meals[0].strInstructions;
-  displayImage(imageURL, header);
-  displayText(header, paragraph);
-  displayList(list);
   // <<<<<<< HEAD
-
   //   var query = '3lb carrots and a chicken sandwich'
   //   $.ajax({
   //     method: 'GET',
@@ -128,7 +138,6 @@ $.ajax({
   //         console.error('Error: ', jqXHR.responseText);
   //     }
   // });
-
   // =======
   // >>>>>>> 953730e2ea693d113f3f59572aa75ee468bb5ac3
 });
