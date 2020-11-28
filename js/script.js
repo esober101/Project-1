@@ -25,7 +25,7 @@ var userChoicePhoto = localStorage.getItem("userFoodChoice");
 // userChoicePhoto.replace(" ", "|");
 console.log(userChoicePhoto);
 var cocktailUrl =
-"https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + userChoice;
+  "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + userChoice;
 var recipeURL =
   "https://www.themealdb.com/api/json/v1/1/search.php?s=" + userChoice;
 
@@ -75,25 +75,16 @@ function displayList(list) {
   }
 }
 
-// <<<<<<< HEAD
-// {
-//   var listItem = $("<li>" + "</li>")
-//   $("#foodItemCalories").append(listItem)
-// }
-
-// =======
-// >>>>>>> 953730e2ea693d113f3f59572aa75ee468bb5ac3
 function getRandomMeal(mealList) {
   var random = Math.floor(Math.random() * mealList.length);
   return mealList[random];
 }
 
-
 // Grabbing cocktail from cocktailDB
 $.ajax({
   url: cocktailUrl,
-  method:"GET",
-}).then(function(response){
+  method: "GET",
+}).then(function (response) {
   console.log(response);
   if (response.drinks != null) {
     console.log(response);
@@ -106,16 +97,18 @@ $.ajax({
       var ingredient = "strIngredient" + i;
       var measurement = "strMeasure" + i;
 
-      if (ingredientPath[ingredient] === ""|| ingredientPath[ingredient] == null) {
+      if (
+        ingredientPath[ingredient] === "" ||
+        ingredientPath[ingredient] == null
+      ) {
         break;
       }
-      if(ingredientPath[measurement] == null){
+      if (ingredientPath[measurement] == null) {
         ingredientPath[measurement] = "To taste";
       }
       list.push(
         ingredientPath[ingredient] + ": " + ingredientPath[measurement]
       );
-      
     }
     console.log(list);
     console.log(response);
@@ -124,9 +117,6 @@ $.ajax({
     displayImage(imageURL, header);
     displayText(header, paragraph);
     displayList(list);
-
-    
-   
   } else {
     //we need to add here what will be displayed on the screen
     // when we will not get an positive response from Api
@@ -134,8 +124,7 @@ $.ajax({
       "This alert happens when user introduces a word that MealDB API cannot find."
     );
   }
-})
-
+});
 
 // grabbing response from mealdb api
 $.ajax({
@@ -154,9 +143,9 @@ $.ajax({
       var ingredient = "strIngredient" + i;
       var measurement = "strMeasure" + i;
 
-      if (ingredientPath[ingredient] === "" ) {
+      if (ingredientPath[ingredient] === "") {
         break;
-      } else{
+      } else {
         list.push(
           ingredientPath[ingredient] + ": " + ingredientPath[measurement]
         );
@@ -172,9 +161,6 @@ $.ajax({
     displayImage(imageURL, header);
     displayText(header, paragraph);
     displayList(list);
-
-    
-   
   } else {
     //we need to add here what will be displayed on the screen
     // when we will not get an positive response from Api
@@ -182,46 +168,4 @@ $.ajax({
       "This alert happens when user introduces a word that MealDB API cannot find."
     );
   }
-  
 });
-
-function getFoodOrDrinkInfo(response){
-  if (response.meals != null) {
-    console.log(response);
-    var imageURL = response.meals[0].strMealThumb;
-    let ingredientPath = response.meals[0];
-
-    let list = [];
-
-    for (let i = 1; i < 20; i++) {
-      var ingredient = "strIngredient" + i;
-      var measurement = "strMeasure" + i;
-
-      if (ingredientPath[ingredient] === "") {
-        break;
-      }
-      list.push(
-        ingredientPath[ingredient] + ": " + ingredientPath[measurement]
-      );
-    }
-    console.log(list);
-    console.log(response);
-    header = response.meals[0].strMeal;
-    paragraph = response.meals[0].strInstructions;
-    displayImage(imageURL, header);
-    displayText(header, paragraph);
-    displayList(list);
-
-    
-   
-  } else {
-    //we need to add here what will be displayed on the screen
-    // when we will not get an positive response from Api
-    console.log(
-      "This alert happens when user introduces a word that MealDB API cannot find."
-    );
-  }
-}
-function setFoodOrDrinkInfo(){
-  
-}
