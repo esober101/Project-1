@@ -49,11 +49,6 @@ $(".random-meal").click(function () {
 
 //search functions for user choices
 $("#search").click(function () {
-  localStorage.setItem("userFoodChoice", $("#inputSearch").val());
-  window.open("index.html", "_self");
-});
-
-$("#search").click(function () {
   userChoice = $("#inputSearch").val();
   console.log(userChoice);
 });
