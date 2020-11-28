@@ -19,6 +19,13 @@ var lunchList = [
   "Chicken Ham and Leek Pie",
 ];
 var dinnerList = ["beef lo mein", "chicken handi", "Salmon Prawn Risotto"];
+var alcoholicCocktailList = ["Margarita", "Daiquiri"];
+var nonalcoholicCocktailList = [
+  "Afterglow",
+  "Apple Karate",
+  "Fruit Cooler",
+  "Limeade",
+];
 var userChoice = localStorage.getItem("userFoodChoice");
 var userChoicePhoto = localStorage.getItem("userFoodChoice");
 // userChoicePhoto.toLowerCase();
@@ -33,21 +40,36 @@ var recipeURL =
 $(".random-meal").click(function () {
   console.log($(this).attr("value"));
   if ($(this).attr("value") === "Breakfast") {
-    userChoice = getRandomMeal(breakfastList);
+    userChoice = getRandomItem(breakfastList);
     localStorage.setItem("userFoodChoice", userChoice);
     window.open("index.html", "_self");
   } else if ($(this).attr("value") === "Lunch") {
-    userChoice = getRandomMeal(lunchList);
+    userChoice = getRandomItem(lunchList);
     localStorage.setItem("userFoodChoice", userChoice);
     window.open("index.html", "_self");
   } else {
-    userChoice = getRandomMeal(dinnerList);
+    userChoice = getRandomItem(dinnerList);
     localStorage.setItem("userFoodChoice", userChoice);
     window.open("index.html", "_self");
   }
 });
-
+$(".random-cocktail").click(function () {
+  console.log($(this).attr("value"));
+  if ($(this).attr("value") === "Alcoholic") {
+    userChoice = getRandomItem(alcoholicCocktailList);
+    localStorage.setItem("userFoodChoice", userChoice);
+    window.open("index.html", "_self");
+  } else if ($(this).attr("value") === "Non-alcoholic") {
+    userChoice = getRandomItem(nonalcoholicCocktailList);
+    localStorage.setItem("userFoodChoice", userChoice);
+    window.open("index.html", "_self");
+  }
+});
 //search functions for user choices
+$("#search").click(function () {
+  localStorage.setItem("userFoodChoice", $("#inputSearch").val());
+  window.open("index.html", "_self");
+});
 $("#search").click(function () {
   userChoice = $("#inputSearch").val();
   console.log(userChoice);
@@ -70,7 +92,7 @@ function displayList(list) {
   }
 }
 
-function getRandomMeal(mealList) {
+function getRandomItem(mealList) {
   var random = Math.floor(Math.random() * mealList.length);
   return mealList[random];
 }
