@@ -88,13 +88,52 @@ function getRandomMeal(mealList) {
   return mealList[random];
 }
 
+
 // Grabbing cocktail from cocktailDB
 $.ajax({
   url: cocktailUrl,
   method:"GET",
 }).then(function(response){
   console.log(response);
+  if (response.drinks != null) {
+    console.log(response);
+    var imageURL = response.drinks[0].strDrinkThumb;
+    let ingredientPath = response.drinks[0];
 
+    let list = [];
+
+    for (let i = 1; i < 20; i++) {
+      var ingredient = "strIngredient" + i;
+      var measurement = "strMeasure" + i;
+
+      if (ingredientPath[ingredient] === ""|| ingredientPath[ingredient] == null) {
+        break;
+      }
+      if(ingredientPath[measurement] == null){
+        ingredientPath[measurement] = "To taste";
+      }
+      list.push(
+        ingredientPath[ingredient] + ": " + ingredientPath[measurement]
+      );
+      
+    }
+    console.log(list);
+    console.log(response);
+    header = response.drinks[0].strDrink;
+    paragraph = response.drinks[0].strInstructions;
+    displayImage(imageURL, header);
+    displayText(header, paragraph);
+    displayList(list);
+
+    
+   
+  } else {
+    //we need to add here what will be displayed on the screen
+    // when we will not get an positive response from Api
+    console.log(
+      "This alert happens when user introduces a word that MealDB API cannot find."
+    );
+  }
 })
 
 
@@ -104,6 +143,49 @@ $.ajax({
   method: "GET",
 }).then(function (response) {
   //condition bellow checks if the return object is equal with null or not
+  if (response.meals != null) {
+    console.log(response);
+    var imageURL = response.meals[0].strMealThumb;
+    let ingredientPath = response.meals[0];
+
+    let list = [];
+
+    for (let i = 1; i < 15; i++) {
+      var ingredient = "strIngredient" + i;
+      var measurement = "strMeasure" + i;
+
+      if (ingredientPath[ingredient] === "" ) {
+        break;
+      } else{
+        list.push(
+          ingredientPath[ingredient] + ": " + ingredientPath[measurement]
+        );
+      }
+      // list.push(
+      //   ingredientPath[ingredient] + ": " + ingredientPath[measurement]
+      // );
+    }
+    console.log(list);
+    console.log(response);
+    header = response.meals[0].strMeal;
+    paragraph = response.meals[0].strInstructions;
+    displayImage(imageURL, header);
+    displayText(header, paragraph);
+    displayList(list);
+
+    
+   
+  } else {
+    //we need to add here what will be displayed on the screen
+    // when we will not get an positive response from Api
+    console.log(
+      "This alert happens when user introduces a word that MealDB API cannot find."
+    );
+  }
+  
+});
+
+function getFoodOrDrinkInfo(response){
   if (response.meals != null) {
     console.log(response);
     var imageURL = response.meals[0].strMealThumb;
@@ -139,4 +221,7 @@ $.ajax({
       "This alert happens when user introduces a word that MealDB API cannot find."
     );
   }
-});
+}
+function setFoodOrDrinkInfo(){
+  
+}
