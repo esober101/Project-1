@@ -24,6 +24,8 @@ var userChoicePhoto = localStorage.getItem("userFoodChoice");
 // userChoicePhoto.toLowerCase();
 // userChoicePhoto.replace(" ", "|");
 console.log(userChoicePhoto);
+var cocktailUrl =
+"https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + userChoice;
 var recipeURL =
   "https://www.themealdb.com/api/json/v1/1/search.php?s=" + userChoice;
 
@@ -86,6 +88,16 @@ function getRandomMeal(mealList) {
   return mealList[random];
 }
 
+// Grabbing cocktail from cocktailDB
+$.ajax({
+  url: cocktailUrl,
+  method:"GET",
+}).then(function(response){
+  console.log(response);
+
+})
+
+
 // grabbing response from mealdb api
 $.ajax({
   url: recipeURL,
@@ -118,25 +130,12 @@ $.ajax({
     displayText(header, paragraph);
     displayList(list);
 
-    //Bellow is the code for CaloryCalculator API
-    var query =
-      "Water 150ml,Sugar 1 tsp ,Yeast 15g,Plain Flour 225g,Salt 1 1/2 tsp ,Olive Oil Drizzle,Passata 80g,Mozzarella 70g,Oregano Peeled and Sliced,Basil Leaves,Black Pepper Pinch";
-    $.ajax({
-      method: "GET",
-      url: "https://api.calorieninjas.com/v1/nutrition?query=" + query,
-      headers: { "X-Api-Key": "Wh5+FsEG2j5hRLpM1OAOgA==eqUMFuwC3GqrgzvY" },
-      contentType: "application/json",
-      success: function (result) {
-        console.log(result);
-      },
-      error: function ajaxError(jqXHR) {
-        console.error("Error: ", jqXHR.responseText);
-      },
-    });
+    
+   
   } else {
     //we need to add here what will be displayed on the screen
     // when we will not get an positive response from Api
-    alert(
+    console.log(
       "This alert happens when user introduces a word that MealDB API cannot find."
     );
   }
