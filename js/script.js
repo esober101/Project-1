@@ -6,10 +6,16 @@ if (
 }
 var header, paragraph;
 var breakfastList = [
-  "pancakes",
-  "breakfast potatoes",
+  "Pancakes",
+  "Breakfast Potatoes",
+  "English Breakfast",
   "Full English Breakfast",
   "French Omelette",
+  "Banana Pancakes",
+  "Salmon Eggs Eggs Benedict",
+  "Polskie Naleśniki (Polish Pancakes)",
+  "Provençal Omelette Cake",
+  "Spanish Tortilla",
 ];
 var lunchList = [
   "big mac",
@@ -17,14 +23,77 @@ var lunchList = [
   "thai green curry",
   "Lasagna Sandwiches",
   "Chicken Ham and Leek Pie",
+  "Clam chowder",
+  "Creamy Tomato Soup",
+  "Corba",
+  "Egg Drop Soup",
+  "French Onion Soup",
+  "Grilled Mac and Cheese Sandwich",
+  "Lamb Tzatziki Burgers",
+  "Mediterranean Pasta Salad",
+  "Shawarma",
 ];
-var dinnerList = ["beef lo mein", "chicken handi", "Salmon Prawn Risotto"];
-var alcoholicCocktailList = ["Margarita", "Daiquiri"];
+var dinnerList = [
+  "beef lo mein", 
+  "chicken handi", 
+  "Salmon Prawn Risotto",
+  "Beef Brisket Pot Roast",
+  "Beef Wellington",
+  "Beef stroganoff",
+  "Chilli prawn linguine",
+  "Beef Bourguignon",
+  "Coq au vin",
+  "Chicken Ham and Leek Pie",
+  "Chicken Marengo",
+  "Duck Confit",
+  "Kentucky Fried Chicken",
+  "Kung Po Prawns", 
+  "Honey Teriyaki Salmon",
+  "General Tso's Chicken",
+  "Seafood fideuà",
+  "Vegan Lasagna",
+  "Vegetarian Casserole",
+];
+var alcoholicCocktailList = [
+  "Margarita", 
+  "Daiquiri",
+  "Old Fashioned",
+  "Long Island Tea",
+  "Negroni",
+  "Whiskey Sour",
+  "Dry Martini",
+  "Manhattan",
+  "Moscow Mule",
+  "Michelada",
+  "Gin and Soda",
+  "Prgane Rosemary Collins",
+  "Garibaldi Negroni",
+  "The Strange Weaver",
+  "Pure Passion",
+  "Autumn Garibaldi",
+  "Blueberry Mojito",
+  "Lazy Cocunut Paloma",
+  "Death in the Afternoon",
+];
 var nonalcoholicCocktailList = [
   "Afterglow",
   "Apple Karate",
   "Fruit Cooler",
   "Limeade",
+  "Yoghurt Cooler",
+  "Thai Iced Tea",
+  "Sweet Bananas",
+  "Strawberry Shivers",
+  "Spiced Peach Punch",
+  "Rail Splitter",
+  "Pysch Vitamin Light",
+  "Pineapple Gingerale Smoothie",
+  "Lassi - Mango",
+  "Just a Moonmint",
+  "Kill the cold Smoothie",
+  "Holloween Punch",
+  "Coke and Drops",
+  "Bora Bora",
 ];
 var userChoice = localStorage.getItem("userFoodChoice");
 var userChoicePhoto = localStorage.getItem("userFoodChoice");
@@ -111,7 +180,7 @@ function displayFoodOrDrink() {
             break;
           }
           list.push(
-            ingredientPath[ingredient] + ": " + ingredientPath[measurement]
+            ingredientPath[ingredient] + " | " + ingredientPath[measurement]
           );
         }
         console.log(list);
