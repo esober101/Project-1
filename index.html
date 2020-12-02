@@ -7,52 +7,70 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>What for dinner?</title>
   <!-- <link rel="stylesheet" href="css/foundation.css" /> -->
+  <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/css/foundation.css">
+  <script src = "https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/vendor/jquery.min.js"></script>
+  <script src = "https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/foundation.min.js"></script>
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
-    integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous" />
 </head>
 
 <body>
- 
+  <h1>Welcome to the wonderful world of food and cocktails!</h1>
   <div class="top-bar" id="responsive-menu">
     <div class="top-bar-left">
-      <ul class="dropdown menu" data-dropdown-menu>
-        <li class=" menu-text">What for dinner?</li>
-        <li class="random-meal" value="Breakfast">
-          <a href="#0">Breakfast</a>
+      <ul class = "dropdown menu" data-dropdown-menu>
+        <li class="menu-text"></li>
+        <li>
+          <a>Food</a>
+          <ul class="menu">          
+            <li class="random-meal" value="Breakfast"><a href="#0">Breakfast</a></li>
+            <li class="random-meal" value="Lunch"><a href="#0">Lunch</a></li> 
+            <li class="random-meal" value="Dinner"><a href="#0">Dinner</a></li>
+          </ul>
         </li>
-        <li class="random-meal" value="Dinner"><a href="#0">Dinner</a></li>
-        <li class="random-meal" value="Lunch"><a href="#0">Lunch</a></li>
+        <li>
+          <a>Cocktails</a>
+          <ul class="menu">           
+            <li class="random-cocktail" value="Alcoholic"><a href="#0">Alcoholic</a></li>
+            <li class="random-cocktail" value="Non-alcoholic"><a href="#0">Non-alcoholic</a></li>
+          </ul>
+        </li>
       </ul>
+      
     </div>
+    
     <div class="top-bar-right">
       <ul class="menu">
-        <li><input type="search" placeholder="Search" id="inputSearch" /></li>
+        <li><input type="search" placeholder="Enter Food or Cocktail" id="inputSearch" /></li>
         <li><button type="button" class="button" id="search">Search</button></li>
       </ul>
     </div>
   </div>
-  <div class="grid-x grid-margin-x">
-    <div class="cell medium-6 large-6">
-      <img src="" alt="" id="foodPic" />
-    </div>
-    <div class="cell medium-6 large-6">
-      <h4 id="title"></h4>
-      <p id="recipeText"></p>
-    </div>
-    <div class="cell medium-6 large-6">
-      <ul id="foodItemCalories"></ul>
-    </div>
-    <div class="cell medium-6 large-6">
-      <ul id="foodItemRecipe"></ul>
+
+  <div class="container">
+    <div class="row">
+      <div class="columns medium-6 large-6">
+        <img src="" alt="" id="foodPic" />
+      </div>
+      <div class="columns medium-6 large-6">
+        <h3 id="title"></h3>
+        <h5>Ingredients</h5>
+        <ul id="foodItemRecipe"></ul>  
+        <h5>Instructions</h5>
+        <p id="recipeText"></p>
+      </div>
     </div>
   </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+ 
+  <script>
+    $(document).ready(function () {
+      $(document).foundation();
+    })
+  </script>
 
-  <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
-    integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
   <script src="js/script.js"></script>
 </body>
+
 
 
 </html>
