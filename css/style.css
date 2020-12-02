@@ -1,14 +1,25 @@
-
-
-body {
-    background-color:rgb(238,238,238);
+h1 {
+  text-align: center;
+  color: rgb(33, 153, 232);
 }
 
 h3 {
-    font-style: bold;
+  font-style: bold;
 }
 h5 {
-    font-style: italic;
+  font-style: italic;
+}
+
+.top-bar {
+  background-color: rgb(245, 237, 214);
+}
+
+.menuText {
+  background-color: rgb(245, 237, 214);
+}
+
+.menu {
+  padding: 0;
 }
 
 #responsive-menu {

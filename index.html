@@ -5,16 +5,16 @@
   <meta charset="utf-8" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>What for dinner?</title>
+  <title> Your Menu for Today</title>
   <!-- <link rel="stylesheet" href="css/foundation.css" /> -->
   <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/css/foundation.css">
   <script src = "https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/vendor/jquery.min.js"></script>
   <script src = "https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/foundation.min.js"></script>
   <link rel="stylesheet" href="css/style.css" />
-
+  
   <style>
     Body{
-    background:url("images/Opps.jpg") no-repeat, center, center, fixed;
+    background:url(./images/kitchenwallpaper.jpg) repeat, center, center, fixed;
     -webkit-background-size:cover;
     -moz-background-size:cover;
     -o-background-size:cover;
@@ -22,42 +22,40 @@
     }
 
   </style>
-
+  
 </head>
 
 <body>
- 
   <div class="top-bar" id="responsive-menu">
-    <div class="top-bar-left">
-      <ul class = "dropdown menu" data-dropdown-menu>
+    <div class="top-bar-right">
+      <ul class="menu">
+        <li><input type="search" placeholder="Enter Food or Cocktail" id="inputSearch" /></li>
+        <li id="searchButton"><button type="button" class="button" id="search">Search</button></li>
+      </ul>
+    </div>
+    <div class="top-bar-right">
+      <ul class="dropdown menu" data-dropdown-menu>
         <li class="menuText">
           <a>Food</a>
-          <ul class="menu ">          
+          <ul class="menu">
             <li class="random-meal" value="Breakfast"><a href="#0">Breakfast</a></li>
-            <li class="random-meal" value="Lunch"><a href="#0">Lunch</a></li> 
+            <li class="random-meal" value="Lunch"><a href="#0">Lunch</a></li>
             <li class="random-meal" value="Dinner"><a href="#0">Dinner</a></li>
           </ul>
         </li>
         <li class="menuText">
           <a>Cocktails</a>
-          <ul class="menu">           
-            <li class="random-cocktail menuText" value="Alcoholic"><a href="#0">Alcoholic</a></li>
+          <ul class="menu">
+            <li class="random-cocktail" value="Alcoholic"><a href="#0">Alcoholic</a></li>
             <li class="random-cocktail" value="Non-alcoholic"><a href="#0">Non-alcoholic</a></li>
           </ul>
         </li>
       </ul>
-      
-    </div>
     
-    <div class="top-bar-right">
-      <ul class="menu">
-        <li><input type="search" placeholder="Enter Food or Cocktail" id="inputSearch" /></li>
-        <li><button type="button" class="button" id="search">Search</button></li>
-      </ul>
     </div>
   </div>
 
-  <div class="container">
+ 
     <div class="row">
       <div class="columns medium-6 large-6">
         <img src="" alt="" id="foodPic" />
@@ -70,7 +68,8 @@
         <p id="recipeText"></p>
       </div>
     </div>
-  </div>
+    
+
     
  
   <script>
