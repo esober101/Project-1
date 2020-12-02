@@ -34,8 +34,8 @@ var lunchList = [
   "Shawarma",
 ];
 var dinnerList = [
-  "beef lo mein", 
-  "chicken handi", 
+  "beef lo mein",
+  "chicken handi",
   "Salmon Prawn Risotto",
   "Beef Brisket Pot Roast",
   "Beef Wellington",
@@ -47,7 +47,7 @@ var dinnerList = [
   "Chicken Marengo",
   "Duck Confit",
   "Kentucky Fried Chicken",
-  "Kung Po Prawns", 
+  "Kung Po Prawns",
   "Honey Teriyaki Salmon",
   "General Tso's Chicken",
   "Seafood fideuà",
@@ -55,7 +55,7 @@ var dinnerList = [
   "Vegetarian Casserole",
 ];
 var alcoholicCocktailList = [
-  "Margarita", 
+  "Margarita",
   "Daiquiri",
   "Old Fashioned",
   "Long Island Tea",
@@ -136,8 +136,8 @@ $(".random-cocktail").click(function () {
 });
 //search functions for user choices
 //$("#search").click(function () {
-  //localStorage.setItem("userFoodChoice", $("#inputSearch").val());
-  //window.open("index.html", "_self");
+//localStorage.setItem("userFoodChoice", $("#inputSearch").val());
+//window.open("index.html", "_self");
 //});
 $("#search").click(function () {
   userChoice = $("#inputSearch").val();
@@ -145,12 +145,11 @@ $("#search").click(function () {
   //localStorage.setItem("userFoodChoice", $("#inputSearch").val());
   // Grabbing cocktail from cocktailDB
   cocktailUrl =
-  "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + userChoice;
+    "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + userChoice;
   recipeURL =
-  "https://www.themealdb.com/api/json/v1/1/search.php?s=" + userChoice;
+    "https://www.themealdb.com/api/json/v1/1/search.php?s=" + userChoice;
   displayFoodOrDrink();
-//window.open("index.html", "_self");
-
+  //window.open("index.html", "_self");
 });
 
 displayFoodOrDrink();
@@ -201,8 +200,10 @@ function displayFoodOrDrink() {
           var ingredient = "strIngredient" + i;
           var measurement = "strMeasure" + i;
 
-          if (ingredientPath[ingredient] === "" ||
-            ingredientPath[ingredient] == null) {
+          if (
+            ingredientPath[ingredient] === "" ||
+            ingredientPath[ingredient] == null
+          ) {
             break;
           }
           if (ingredientPath[measurement] == null) {
@@ -219,9 +220,7 @@ function displayFoodOrDrink() {
         displayImage(imageURL, header);
         displayText(header, paragraph);
         displayList(list);
-      }
-
-      else {
+      } else {
         //we need to add here what will be displayed on the screen
         // when we will not get an positive response from Api
         displayErrorMessage();
@@ -259,12 +258,12 @@ function getRandomItem(mealList) {
   return mealList[random];
 }
 
-
-
 function displayErrorMessage() {
-    $("#title").text("Sorry, We cannot find your search request.");
-    $("#recipeText").text("If you are not sure what to search, try our random cocktail and food buttons.");
-    $("#foodItemRecipe").text("");
-    displayImage("images/opps.jpg", "Error Message For Not Finding Search Item");
-    //displayText("Sorry, We cannot find your search request.", "If you are not sure what to search, try our random cocktail and food buttons.");
+  $("#title").text("Sorry, We cannot find your search request.");
+  $("#recipeText").text(
+    "If you are not sure what to search, try our random cocktail and food buttons."
+  );
+  $("#foodItemRecipe").text("");
+  displayImage("images/opps.jpg", "Error Message For Not Finding Search Item");
+  //displayText("Sorry, We cannot find your search request.", "If you are not sure what to search, try our random cocktail and food buttons.");
 }

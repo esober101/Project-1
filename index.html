@@ -27,11 +27,10 @@
 
 <body>
   <div class="top-bar" id="responsive-menu">
-    <div class="top-bar-right">
-      <ul class="menu">
-        <li><input type="search" placeholder="Enter Food or Cocktail" id="inputSearch" /></li>
-        <li id="searchButton"><button type="button" class="button" id="search">Search</button></li>
-      </ul>
+    <h3 id="page-title">Your Menu for Today</h3>
+    <div class="top-bar-right menu">  
+        <input type="search" placeholder="Enter Food or Cocktail" id="inputSearch" />
+        <button id="searchButton" type="button" class="button" id="search">Search</button>
     </div>
     <div class="top-bar-right">
       <ul class="dropdown menu" data-dropdown-menu>
@@ -63,12 +62,14 @@
       <div class="columns medium-6 large-6">
         <h3 id="title"></h3>
         <h5>Ingredients</h5>
-        <ul id="foodItemRecipe"></ul>  
+        <ul id="foodItemRecipe" class="scroll"></ul>  
         <h5>Instructions</h5>
-        <p id="recipeText"></p>
+        <p id="recipeText"class="scroll"></p>
       </div>
     </div>
-    
+    <div>
+      <p id="footer">Copyright: Cristina Gutierrez, Cory Scanlon, Eric Ober, Pavel Darii</p>
+    </div>
 
     
  
