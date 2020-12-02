@@ -11,26 +11,37 @@
   <script src = "https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/vendor/jquery.min.js"></script>
   <script src = "https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/foundation.min.js"></script>
   <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    Body{
+    background:url("images/Opps.jpg") no-repeat, center, center, fixed;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    -o-background-size:cover;
+    background-size:cover;
+    }
+
+  </style>
+
 </head>
 
 <body>
-  <h1>Welcome to the wonderful world of food and cocktails!</h1>
+ 
   <div class="top-bar" id="responsive-menu">
     <div class="top-bar-left">
       <ul class = "dropdown menu" data-dropdown-menu>
-        <li class="menu-text"></li>
-        <li>
+        <li class="menuText">
           <a>Food</a>
-          <ul class="menu">          
+          <ul class="menu ">          
             <li class="random-meal" value="Breakfast"><a href="#0">Breakfast</a></li>
             <li class="random-meal" value="Lunch"><a href="#0">Lunch</a></li> 
             <li class="random-meal" value="Dinner"><a href="#0">Dinner</a></li>
           </ul>
         </li>
-        <li>
+        <li class="menuText">
           <a>Cocktails</a>
           <ul class="menu">           
-            <li class="random-cocktail" value="Alcoholic"><a href="#0">Alcoholic</a></li>
+            <li class="random-cocktail menuText" value="Alcoholic"><a href="#0">Alcoholic</a></li>
             <li class="random-cocktail" value="Non-alcoholic"><a href="#0">Non-alcoholic</a></li>
           </ul>
         </li>
