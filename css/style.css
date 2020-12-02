@@ -1,6 +1,8 @@
-h1 {
-  text-align: center;
-  color: rgb(33, 153, 232);
+
+#page-title {
+  display: inline;
+  font-family: serif;
+
 }
 
 h3 {
@@ -21,3 +23,38 @@ h5 {
 .menu {
   padding: 0;
 }
+
+#foodItemRecipe {
+  margin-left: 0px;
+}
+.scroll {
+  margin: 4px, 4px;
+  padding: 4px;
+  background-color: rgb(245, 237, 214);
+  width: 500px;
+  height: 219px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: justify;
+}
+
+#foodPic {
+  padding-top: 10px;
+}
+#footer {
+  position: absolute;
+  padding: 10px;
+  margin-bottom: 0px;
+  bottom: 0px;
+  background-color: rgb(245, 237, 214);
+  width: 100%;
+  text-align: center;
+  color: #d3d3d3;
+}
+#inputSearch,
+#searchButton {
+  display: inline;
+  margin-right: 0;
+  margin-left: 0;
+}
+
