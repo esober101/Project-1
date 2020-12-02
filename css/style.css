@@ -1,6 +1,8 @@
+
 #page-title {
   display: inline;
   font-family: serif;
+
 }
 
 h3 {
@@ -21,6 +23,7 @@ h5 {
 .menu {
   padding: 0;
 }
+
 #foodItemRecipe {
   margin-left: 0px;
 }
@@ -54,3 +57,4 @@ h5 {
   margin-right: 0;
   margin-left: 0;
 }
+
