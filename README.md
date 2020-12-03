@@ -12,5 +12,6 @@ There are also 2 buttons to select a random alcoholic or non-alcoholic cocktail.
 
 ## Screen Shot and link to the deployed website below
 
-(Insert link here)
-(Insert img file here)
+https://thecoaxial.github.io/Project-1/index.html
+
+![Screenshot](https://github.com/TheCoaxial/Project-1/tree/main/images/YMFT.png)
