@@ -18,9 +18,9 @@ var breakfastList = [
   "Spanish Tortilla",
 ];
 var lunchList = [
-  "big mac",
-  "vegetarian chilli",
-  "thai green curry",
+  "Big mac",
+  "Vegetarian chilli",
+  "Thai green curry",
   "Lasagna Sandwiches",
   "Chicken Ham and Leek Pie",
   "Clam chowder",
@@ -34,10 +34,8 @@ var lunchList = [
   "Shawarma",
 ];
 var dinnerList = [
-
-  "beef lo mein",
-  "chicken handi",
-
+  "Beef lo mein",
+  "Chicken handi",
   "Salmon Prawn Risotto",
   "Beef Brisket Pot Roast",
   "Beef Wellington",
@@ -49,9 +47,7 @@ var dinnerList = [
   "Chicken Marengo",
   "Duck Confit",
   "Kentucky Fried Chicken",
-
   "Kung Po Prawns",
-
   "Honey Teriyaki Salmon",
   "General Tso's Chicken",
   "Seafood fideuà",
@@ -59,9 +55,7 @@ var dinnerList = [
   "Vegetarian Casserole",
 ];
 var alcoholicCocktailList = [
-
   "Margarita",
-
   "Daiquiri",
   "Old Fashioned",
   "Long Island Tea",
@@ -72,13 +66,13 @@ var alcoholicCocktailList = [
   "Moscow Mule",
   "Michelada",
   "Gin and Soda",
-  "Prgane Rosemary Collins",
+  "Orange Rosemary Collins",
   "Garibaldi Negroni",
   "The Strange Weaver",
   "Pure Passion",
   "Autumn Garibaldi",
   "Blueberry Mojito",
-  "Lazy Cocunut Paloma",
+  "Lazy Coconut Paloma",
   "Death in the Afternoon",
 ];
 var nonalcoholicCocktailList = [
