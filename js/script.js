@@ -1,3 +1,4 @@
+$("h5, #foodItemRecipe").show();
 if (
   localStorage.getItem("userFoodChoice") == null ||
   localStorage.getItem("userFoodChoice") == undefined
@@ -34,7 +35,6 @@ var lunchList = [
   "Shawarma",
 ];
 var dinnerList = [
-
   "beef lo mein",
   "chicken handi",
 
@@ -59,7 +59,6 @@ var dinnerList = [
   "Vegetarian Casserole",
 ];
 var alcoholicCocktailList = [
-
   "Margarita",
 
   "Daiquiri",
@@ -147,7 +146,7 @@ $(".random-cocktail").click(function () {
 //window.open("index.html", "_self");
 
 //});
-$("#search").click(function () {
+$("#searchButton").click(function () {
   userChoice = $("#inputSearch").val();
   //console.log(userChoice);
   //localStorage.setItem("userFoodChoice", $("#inputSearch").val());
@@ -228,9 +227,7 @@ function displayFoodOrDrink() {
         displayImage(imageURL, header);
         displayText(header, paragraph);
         displayList(list);
-
       } else {
-
         //we need to add here what will be displayed on the screen
         // when we will not get an positive response from Api
         displayErrorMessage();
@@ -269,11 +266,13 @@ function getRandomItem(mealList) {
 }
 
 function displayErrorMessage() {
+  $("h5, #foodItemRecipe").hide();
   $("#title").text("Sorry, We cannot find your search request.");
   $("#recipeText").text(
-    "If you are not sure what to search, try our random cocktail and food buttons."
+    "If you are not sure what to search, try our random cocktail or food buttons."
   );
-  $("#foodItemRecipe").text("");
-  displayImage("images/opps.jpg", "Error Message For Not Finding Search Item");
-  //displayText("Sorry, We cannot find your search request.", "If you are not sure what to search, try our random cocktail and food buttons.");
+  displayImage(
+    "images/clipart645651.png",
+    "Error Message For Not Finding Search Item"
+  );
 }
