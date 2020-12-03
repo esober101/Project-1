@@ -9,6 +9,10 @@ As well as searching manually a user can select a button to select a random meal
 
 There are also 2 buttons to select a random alcoholic or non-alcoholic cocktail. 
 
+themealdb - https://www.themealdb.com/api.php
+
+thecocktaildb - https://www.thecocktaildb.com/api.php
+
 
 ## Screen Shot and link to the deployed website below
 
