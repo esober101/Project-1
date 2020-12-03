@@ -1,3 +1,6 @@
+// if there was a error and the elements from $() are hidden we need the show method() to display them again on the page in case the page is reloaded
+$("h5, #foodItemRecipe").show();
+// we check the first condition if we have any userFoodChoice in the local storage to display it on the screen and if there is none then we need to add one in order to get something displayed on the screen
 if (
   localStorage.getItem("userFoodChoice") == null ||
   localStorage.getItem("userFoodChoice") == undefined
@@ -5,6 +8,7 @@ if (
   localStorage.setItem("userFoodChoice", "pizza");
 }
 var header, paragraph;
+//bellow are lists with names of food or cocktail which will be used when user will push random button
 var breakfastList = [
   "Pancakes",
   "Breakfast Potatoes",
@@ -34,7 +38,6 @@ var lunchList = [
   "Shawarma",
 ];
 var dinnerList = [
-
   "beef lo mein",
   "chicken handi",
 
@@ -59,7 +62,6 @@ var dinnerList = [
   "Vegetarian Casserole",
 ];
 var alcoholicCocktailList = [
-
   "Margarita",
 
   "Daiquiri",
@@ -103,15 +105,13 @@ var nonalcoholicCocktailList = [
 ];
 var userChoice = localStorage.getItem("userFoodChoice");
 var userChoicePhoto = localStorage.getItem("userFoodChoice");
-// userChoicePhoto.toLowerCase();
-// userChoicePhoto.replace(" ", "|");
-console.log(userChoicePhoto);
 var cocktailUrl =
   "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + userChoice;
 var recipeURL =
   "https://www.themealdb.com/api/json/v1/1/search.php?s=" + userChoice;
-
-//search function for random meals
+//display the userChoice that is in the localStorage
+displayFoodOrDrink();
+//on click on a random meal button will be displayed a random meal
 $(".random-meal").click(function () {
   console.log($(this).attr("value"));
   if ($(this).attr("value") === "Breakfast") {
@@ -128,6 +128,7 @@ $(".random-meal").click(function () {
     window.open("index.html", "_self");
   }
 });
+//on click on a random cocktail button will be displayed a random cocktail depending on the choice of the user
 $(".random-cocktail").click(function () {
   console.log($(this).attr("value"));
   if ($(this).attr("value") === "Alcoholic") {
@@ -140,27 +141,19 @@ $(".random-cocktail").click(function () {
     window.open("index.html", "_self");
   }
 });
-//search functions for user choices
-//$("#search").click(function () {
 
-//localStorage.setItem("userFoodChoice", $("#inputSearch").val());
-//window.open("index.html", "_self");
-
-//});
-$("#search").click(function () {
+// on pushing the search button we get the value from the text field, then using that word we look in the apis.
+$("#searchButton").click(function () {
+  $("h5, #foodItemRecipe").show();
   userChoice = $("#inputSearch").val();
-  //console.log(userChoice);
-  //localStorage.setItem("userFoodChoice", $("#inputSearch").val());
   // Grabbing cocktail from cocktailDB
   cocktailUrl =
     "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + userChoice;
   recipeURL =
     "https://www.themealdb.com/api/json/v1/1/search.php?s=" + userChoice;
+  //when we look in the apis if we find a positive response then we display it, if the response is negative, we display a error message
   displayFoodOrDrink();
-  //window.open("index.html", "_self");
 });
-
-displayFoodOrDrink();
 
 function displayFoodOrDrink() {
   $.ajax({
@@ -228,9 +221,7 @@ function displayFoodOrDrink() {
         displayImage(imageURL, header);
         displayText(header, paragraph);
         displayList(list);
-
       } else {
-
         //we need to add here what will be displayed on the screen
         // when we will not get an positive response from Api
         displayErrorMessage();
@@ -262,18 +253,20 @@ function displayList(list) {
     $("#foodItemRecipe").append(recipeItem);
   }
 }
-
+//this function has the parameter a list and returns back a random element from that list
 function getRandomItem(mealList) {
   var random = Math.floor(Math.random() * mealList.length);
   return mealList[random];
 }
-
+//this function returns a message on the screen when the word user inserted is not found in the APIs
 function displayErrorMessage() {
+  $("h5, #foodItemRecipe").hide();
   $("#title").text("Sorry, We cannot find your search request.");
   $("#recipeText").text(
-    "If you are not sure what to search, try our random cocktail and food buttons."
+    "If you are not sure what to search, try our random cocktail or food buttons."
   );
-  $("#foodItemRecipe").text("");
-  displayImage("images/opps.jpg", "Error Message For Not Finding Search Item");
-  //displayText("Sorry, We cannot find your search request.", "If you are not sure what to search, try our random cocktail and food buttons.");
+  displayImage(
+    "images/clipart645651.png",
+    "Error Message For Not Finding Search Item"
+  );
 }
