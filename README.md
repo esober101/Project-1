@@ -19,13 +19,13 @@ https://thecoaxial.github.io/Project-1/index.html
 
 
 ## Contributions
-Eric Ober
+Eric Ober - https://github.com/esober101
 
-Cristina Gutierrez
+Cristina Gutierrez - https://github.com/crismagu
 
-Pavel Darii
+Pavel Darii - https://github.com/paveldarii
 
-Cory Scanlon
+Cory Scanlon -https://github.com/TheCoaxial
 
 ## Copyright
 
