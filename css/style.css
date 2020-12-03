@@ -1,17 +1,19 @@
-
 #page-title {
   display: inline;
   font-family: serif;
-
+  color: #00617c;
 }
 
 h3 {
   font-style: bold;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 h5 {
   font-style: italic;
+  margin-left: 10px;
+  margin-right: 10px;
 }
-
 .top-bar {
   background-color: rgb(245, 237, 214);
 }
@@ -19,26 +21,44 @@ h5 {
 .menuText {
   background-color: rgb(245, 237, 214);
 }
-
+a:hover {
+  border: none;
+}
+a::after {
+  border: none;
+}
+a {
+  color: #00617c;
+}
+.button {
+  background: #00617c;
+}
 .menu {
   padding: 0;
 }
-#foodItemRecipe {
-  margin-left: 0px;
+/* the list of button menus on the top right side of the page*/
+#button-list {
+  display: inline;
+  background-color: rgb(245, 237, 214);
 }
 .scroll {
-  margin: 4px, 4px;
+  border-left: 7px solid tomato;
+  margin-left: 10px;
+  margin-right: 10px;
   padding: 4px;
   background-color: rgb(245, 237, 214);
+  opacity: 0.8;
   width: 500px;
-  height: 219px;
+  height: 220px;
   overflow-x: hidden;
   overflow-y: auto;
   text-align: justify;
 }
-
+#recipeText .scroll {
+  margin-bottom: 10px;
+}
 #foodPic {
-  padding-top: 10px;
+  margin-top: 10px;
 }
 #footer {
   position: fixed;
@@ -49,7 +69,7 @@ h5 {
   background-color: rgb(245, 237, 214);
   width: 100%;
   text-align: center;
-  color: #d3d3d3;
+  color: #4ac4e2;
 }
 #inputSearch,
 #searchButton {
@@ -57,6 +77,6 @@ h5 {
   margin-right: 0;
   margin-left: 0;
 }
-p{ 
+p {
   margin-bottom: 100px;
 }
