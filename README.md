@@ -14,8 +14,20 @@ There are also 2 buttons to select a random alcoholic or non-alcoholic cocktail.
 
 https://thecoaxial.github.io/Project-1/index.html
 
-![Screenshot](images/YMFT.PNG)
+![Screenshot](images/YMFTU.png)
+![Screenshot](images/errorPage.png)
 
+
+## Contributions
+Eric Ober
+
+Cristina Gutierrez
+
+Pavel Darii
+
+Cory Scanlon
+
+## Copyright
 
 MIT License
 
