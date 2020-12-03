@@ -36,8 +36,10 @@ a {
 .menu {
   padding: 0;
 }
+/* the list of button menus on the top right side of the page*/
 #button-list {
   display: inline;
+  background-color: rgb(245, 237, 214);
 }
 .scroll {
   border-left: 7px solid tomato;
