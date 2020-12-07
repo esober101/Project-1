@@ -16,7 +16,7 @@ thecocktaildb - https://www.thecocktaildb.com/api.php
 
 ## Screen Shot and link to the deployed website below
 
-https://thecoaxial.github.io/Project-1/index.html
+https://thecoaxial.github.io/Your-Menu-for-Today/
 
 ![Screenshot](images/YMFTU.png)
 ![Screenshot](images/errorPage.png)
